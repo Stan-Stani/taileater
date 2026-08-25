@@ -1,0 +1,53 @@
+[gd_scene format=4 uid="uid://cmqxm30rpy5g7"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_7dm0k"]
+_data = PackedByteArray("AAADAAUAAAABAAAAAAEAAAABAAB8AAAAUklGRnQAAABXRUJQVlA4TGcAAAAv/8A/ECdAkG0bG8CwdogTZhvnBjGAaRzWCQkI0Qj/g5XzHwDt06Y+KGrbSBoOy2AGwaoQlj+sal/31Yj+T4DJ//K//C//L13QtpXcupTDGWhbgED9cnPeKoRRp+1wyuR/+V/+/7oFAA==")
+size_override = Vector2(256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig7tw"]
+atlas = SubResource("PortableCompressedTexture2D_7dm0k")
+region = Rect2(112, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0xm2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig7tw")
+}],
+"loop": 1,
+"name": &"Standing",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61w15"]
+
+[node name="Main" type="Node2D" unique_id=1356912609]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=223211538]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1400881679]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0xm2m")
+animation = &"Standing"
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "HeadRight",
+"source": "res://sprites/Player.aseprite",
+"source_uid": 251458641742406761
+}
+metadata/_aseprite_wizard_source_file_hash_ = "4a188e319854f0f1425c9a7cf397db47"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1372609893]
+shape = SubResource("RectangleShape2D_61w15")
