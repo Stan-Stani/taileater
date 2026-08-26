@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://cmqxm30rpy5g7"]
 
+[ext_resource type="Script" uid="uid://dr58ythn70s6v" path="res://main.gd" id="1_ig7tw"]
+
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_7dm0k"]
 _data = PackedByteArray("AAADAAUAAAABAAAAAAEAAAABAAB8AAAAUklGRnQAAABXRUJQVlA4TGcAAAAv/8A/ECdAkG0bG8CwdogTZhvnBjGAaRzWCQkI0Qj/g5XzHwDt06Y+KGrbSBoOy2AGwaoQlj+sal/31Yj+T4DJ//K//C//L13QtpXcupTDGWhbgED9cnPeKoRRp+1wyuR/+V/+/7oFAA==")
 size_override = Vector2(256, 256)
@@ -22,6 +24,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61w15"]
 
 [node name="Main" type="Node2D" unique_id=1356912609]
+script = ExtResource("1_ig7tw")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=223211538]
 
