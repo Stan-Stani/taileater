@@ -25,10 +25,35 @@ func _unhandled_input(event):
 				var slope = (anchor_click.y - second_click.y) / (anchor_click.x - second_click.x)
 				if abs(slope) > 1:
 					print('vertical')
+					
+					var color_rect = ColorRect.new()
+					var directional_length = second_click.y - anchor_click.y
+					color_rect.anchor_top = 0
+					color_rect.position = Vector2(anchor_click.x, anchor_click.y)
+					
+					var negative_offset = 0
+					if directional_length < 0:
+						color_rect.position.y -= abs(directional_length)
+					
+					color_rect.color = Color.REBECCA_PURPLE
+					color_rect.size = Vector2(2, abs(directional_length))
+					add_child(color_rect)
 				else:
-					print('horizontal')
-				
-				print("slope", slope)
+					print('horizontal', second_click.x)
+					
+					var color_rect = ColorRect.new()
+					var directional_length = second_click.x - anchor_click.x
+					color_rect.anchor_top = 0
+					color_rect.position = Vector2(anchor_click.x, anchor_click.y)
+					
+					var negative_offset = 0
+					if directional_length < 0:
+						color_rect.position.x -= abs(directional_length)
+					
+					color_rect.color = Color.REBECCA_PURPLE
+					color_rect.size = Vector2(abs(directional_length), 2)
+					add_child(color_rect)
+				#print("slope", slope)
 				anchor_click = Vector2.INF
 				second_click = Vector2.INF
 
