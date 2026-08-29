@@ -35,7 +35,7 @@ func _unhandled_input(event):
 					if directional_length < 0:
 						color_rect.position.y -= abs(directional_length)
 					
-					color_rect.color = Color.REBECCA_PURPLE
+					color_rect.color = Color.WEB_MAROON
 					color_rect.size = Vector2(2, abs(directional_length))
 					add_child(color_rect)
 				else:
@@ -50,11 +50,11 @@ func _unhandled_input(event):
 					if directional_length < 0:
 						color_rect.position.x -= abs(directional_length)
 					
-					color_rect.color = Color.REBECCA_PURPLE
+					color_rect.color = Color.WEB_GREEN
 					color_rect.size = Vector2(abs(directional_length), 2)
 					add_child(color_rect)
 				#print("slope", slope)
-				anchor_click = Vector2.INF
+				anchor_click = second_click
 				second_click = Vector2.INF
 
 				
