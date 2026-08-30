@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cmqxm30rpy5g7"]
 
-[ext_resource type="Script" uid="uid://dr58ythn70s6v" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://ctgiavwq44fhg" path="res://backup.gd" id="1_ig7tw"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_7dm0k"]
 _data = PackedByteArray("AAADAAUAAAABAAAAAAEAAAABAAB8AAAAUklGRnQAAABXRUJQVlA4TGcAAAAv/8A/ECdAkG0bG8CwdogTZhvnBjGAaRzWCQkI0Qj/g5XzHwDt06Y+KGrbSBoOy2AGwaoQlj+sal/31Yj+T4DJ//K//C//L13QtpXcupTDGWhbgED9cnPeKoRRp+1wyuR/+V/+/7oFAA==")
