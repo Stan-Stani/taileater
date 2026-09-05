@@ -1,0 +1,53 @@
+[gd_scene format=4 uid="uid://bh3h52d6iriia"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_k2eow"]
+_data = PackedByteArray("AAADAAUAAAABAAAAAAEAAAABAAB8AAAAUklGRnQAAABXRUJQVlA4TGcAAAAv/8A/ECdAkG0bG8CwdogTZhvnBjGAaRzWCQkI0Qj/g5XzHwDt06Y+KGrbSBoOy2AGwaoQlj+sal/31Yj+T4DJ//K//C//L13QtpXcupTDGWhbgED9cnPeKoRRp+1wyuR/+V/+/7oFAA==")
+size_override = Vector2(256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj31r"]
+atlas = SubResource("PortableCompressedTexture2D_k2eow")
+region = Rect2(144, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nsm01"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj31r")
+}],
+"loop": 1,
+"name": &"Standing",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61w15"]
+size = Vector2(16, 7)
+
+[node name="SnakeBody" type="AnimatedSprite2D" unique_id=146189374]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nsm01")
+animation = &"Standing"
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "BodyMediumRight",
+"source": "res://sprites/Player.aseprite",
+"source_uid": 251458641742406761
+}
+metadata/_aseprite_wizard_source_file_hash_ = "4a188e319854f0f1425c9a7cf397db47"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1775479237]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=936313695]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_61w15")

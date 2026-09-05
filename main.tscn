@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cmqxm30rpy5g7"]
 
 [ext_resource type="Script" uid="uid://dr58ythn70s6v" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://id7nx82wsbao" path="res://scripts/tools/draw_snake.gd" id="2_0xm2m"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_7dm0k"]
 _data = PackedByteArray("AAADAAUAAAABAAAAAAEAAAABAAB8AAAAUklGRnQAAABXRUJQVlA4TGcAAAAv/8A/ECdAkG0bG8CwdogTZhvnBjGAaRzWCQkI0Qj/g5XzHwDt06Y+KGrbSBoOy2AGwaoQlj+sal/31Yj+T4DJ//K//C//L13QtpXcupTDGWhbgED9cnPeKoRRp+1wyuR/+V/+/7oFAA==")
@@ -54,3 +55,6 @@ metadata/_aseprite_wizard_source_file_hash_ = "4a188e319854f0f1425c9a7cf397db47"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1372609893]
 shape = SubResource("RectangleShape2D_61w15")
+
+[node name="DrawSnake" type="Node2D" parent="." unique_id=975804119]
+script = ExtResource("2_0xm2m")
