@@ -12,6 +12,8 @@ func _process(delta: float) -> void:
 	pass
 
 var first_click_of_this_straight_line = Vector2.INF
+var start_of_this_straight_line = Vector2.INF
+
 var prev_click_pos: Vector2 = Vector2.INF
 var this_click_pos: Vector2 = Vector2.INF
 var prev_direction := ""
@@ -36,6 +38,7 @@ func handle_click(event):
 	if first_click_of_this_straight_line == Vector2.INF:
 		first_click_of_this_straight_line \
 		 = this_click_pos
+		start_of_this_straight_line = first_click_of_this_straight_line
 	
 	if prev_click_pos == Vector2.INF:
 		prev_click_pos = this_click_pos
@@ -54,16 +57,19 @@ func handle_click(event):
 		# should give new names instead of still calling it "click"
 		# maybe like "snapped_..."
 		if this_direction == "vertical":
-			first_click_of_this_straight_line.y = prev_line_start_pos.y
+			start_of_this_straight_line.y = prev_line_start_pos.y
+			start_of_this_straight_line.x = first_click_of_this_straight_line.x
 			prev_click_pos.y = prev_line_start_pos.y
 			
+			
 		elif this_direction == "horizontal":
-			first_click_of_this_straight_line.x = prev_line_start_pos.x
+			start_of_this_straight_line.x = prev_line_start_pos.x
+			start_of_this_straight_line.y = first_click_of_this_straight_line.y
 			prev_click_pos.x = prev_line_start_pos.x
 	
 	if this_direction == "vertical":
 		line_segment_rect.color = Color.WEB_MAROON
-		line_segment_rect.position = Vector2(first_click_of_this_straight_line.x, prev_click_pos.y)
+		line_segment_rect.position = Vector2(start_of_this_straight_line.x, prev_click_pos.y)
 		var y_delta = this_click_pos.y - prev_click_pos.y
 		line_segment_rect.size = Vector2(2, abs(y_delta))
 		if y_delta < 0:
@@ -72,7 +78,7 @@ func handle_click(event):
 		
 	elif this_direction == "horizontal":
 		line_segment_rect.color = Color.WEB_GREEN
-		line_segment_rect.position = Vector2(prev_click_pos.x, first_click_of_this_straight_line.y)
+		line_segment_rect.position = Vector2(prev_click_pos.x, start_of_this_straight_line.y)
 		var x_delta = this_click_pos.x - prev_click_pos.x
 		line_segment_rect.size = Vector2(abs(x_delta), 2)
 		if x_delta < 0:
@@ -86,12 +92,15 @@ func handle_click(event):
 	first_click_of_this_straight_line_rect.color = Color.BLUE
 	first_click_of_this_straight_line_rect.size = Vector2(2,2)
 	first_click_of_this_straight_line_rect.z_index = 100
-	first_click_of_this_straight_line_rect.position = first_click_of_this_straight_line
+	first_click_of_this_straight_line_rect.position = start_of_this_straight_line
 	add_child(first_click_of_this_straight_line_rect)
 	var snake_body = snake_body_scene.instantiate()
-	snake_body.position = first_click_of_this_straight_line
+	snake_body.position = start_of_this_straight_line
 	add_child(snake_body)
 	
+	print(start_of_this_straight_line)
+	if this_direction == 'vertical':
+		snake_body.rotation = deg_to_rad(90) 
 	
 
 	prev_direction = this_direction
